@@ -1,5 +1,7 @@
 package Assignment1;
 
+
+
 import java.util.ArrayList;
 
 public class Module {
@@ -27,17 +29,13 @@ public class Module {
 	
 	public void addStudent(Student student) {
 		students.add(student);
-		student.addModule(this, true);
-	}
-	
-	public void addStudent(Student student, boolean x) {
-		students.add(student);
+		
 	}
 	
 	public void removeStudent(String id) {
-		for(int i = 0; i < students.size(); i++) {
-			if(students.get(i).getId() == id) {
-				students.remove(i);
+		for(int a = 0; a < students.size(); a++) {
+			if(students.get(a).getId() == id) {
+				students.remove(a);
 			}
 		}
 	}
@@ -48,17 +46,13 @@ public class Module {
 	
 	public void addCourse(Course course) {
 		courses.add(course);
-		course.addModule(this, true);
-	}
-	
-	public void addCourse(Course course, boolean x) {
-		courses.add(course);
+		
 	}
 	
 	public void removeCourse(String id) {
-		for(int i = 0; i < courses.size(); i++) {
-			if(courses.get(i).getName() == id) {
-				courses.remove(i);
+		for(int a = 0; a < courses.size(); a++) {
+			if(courses.get(a).getName() == id) {
+				courses.remove(a);
 			}
 		}
 	}
