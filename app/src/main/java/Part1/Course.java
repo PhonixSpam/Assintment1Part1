@@ -1,20 +1,22 @@
 package Assignment1;
 
+
+
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 
 public class Course {
 	private String name;
-	private DateTime startDate;
-	private DateTime endDate;
+	private DateTime courseStart;
+	private DateTime courseEnd;
 	
 	private ArrayList<Student> students = new ArrayList<Student>();
 	private ArrayList<Module> modules = new ArrayList<Module>();
 	
 	public Course(String name, String start, String end) {
 		this.setName(name);
-		this.setStartDate(DateTime.parse(start));
+		this.setCourseStart(DateTime.parse(start));
 		this.setEndDate(DateTime.parse(end));
 	}
 
@@ -26,35 +28,31 @@ public class Course {
 		this.name = name;
 	}
 
-	public DateTime getStartDate() {
-		return startDate;
+	public DateTime getCourseStart() {
+		return courseStart;
 	}
 
-	public void setStartDate(DateTime startDate) {
-		this.startDate = startDate;
+	public void setCourseStart(DateTime courseStart) {
+		this.courseStart = courseStart;
 	}
 
 	public DateTime getEndDate() {
-		return endDate;
+		return courseEnd;
 	}
 
-	public void setEndDate(DateTime endDate) {
-		this.endDate = endDate;
+	public void setEndDate(DateTime courseEnd) {
+		this.courseEnd = courseEnd;
 	}
 	
 	public void addModule(Module module) {
 		modules.add(module);
-		module.addCourse(this, true);
-	}
-	
-	public void addModule(Module module, boolean x) {
-		modules.add(module);
+		
 	}
 	
 	public void removeModule(String id) {
-		for(int i = 0; i < modules.size(); i++) {
-			if(modules.get(i).getId() == id) {
-				modules.remove(i);
+		for(int a = 0; a < modules.size(); a++) {
+			if(modules.get(a).getId() == id) {
+				modules.remove(a);
 			}
 		}
 	}
@@ -65,17 +63,13 @@ public class Course {
 	
 	public void addStudent(Student student) {
 		students.add(student);
-		student.addCourse(this, true);
-	}
-	
-	public void addStudent(Student student, boolean x) {
-		students.add(student);
+		
 	}
 	
 	public void removeStudent(String id) {
-		for(int i = 0; i < students.size(); i++) {
-			if(students.get(i).getId() == id) {
-				students.remove(i);
+		for(int a = 0; a < students.size(); a++) {
+			if(students.get(a).getId() == id) {
+				students.remove(a);
 			}
 		}
 	}
