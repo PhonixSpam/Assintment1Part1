@@ -1,5 +1,9 @@
 package Assignment1;
 
+
+
+
+
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
@@ -9,7 +13,7 @@ public class Student {
 	private int age;
 	private DateTime dob;
 	private String id;
-	private String usrname;
+	private String user;
 	
 	private ArrayList<Module> modules = new ArrayList<Module>();
 	private ArrayList<Course> courses = new ArrayList<Course>();
@@ -18,7 +22,7 @@ public class Student {
 		this.name = name;
 		this.dob = DateTime.parse(dob);
 		this.id = id;
-		this.age = (int) ((DateTime.now().getMillis() - this.dob.getMillis()) / Long.parseLong("31556952000"));
+		this.age = (int) ((DateTime.now().getMillis() - this.dob.getMillis()) / Long.parseLong("31556952000")); //gets the number of mill a seconds in a year to calculate age
 	}
 	
 	public String getName() {
@@ -46,30 +50,23 @@ public class Student {
 	}
 	
 	public String getUsername() {
-		usrname = name.concat(String.valueOf(age));
-		return usrname;
+		user = name.concat(String.valueOf(age));
+		return user;
 	}
 
 	public String getId(){
-//		String temp = String.valueOf(DateTime.now().getYear()).substring(1, 3);
-//		id = temp.concat(String.valueOf(1000000 + idadd).substring(1, 6));
-//		idadd++;
 		return id;
 	}
 	
 	public void addModule(Module module) {
 		modules.add(module);
-		module.addStudent(this, true);
-	}
 	
-	public void addModule(Module module, boolean x) {
-		modules.add(module);
 	}
 	
 	public void removeModule(String id) {
-		for(int i = 0; i < modules.size(); i++) {
-			if(modules.get(i).getId() == id) {
-				modules.remove(i);
+		for(int a = 0; a < modules.size(); a++) {
+			if(modules.get(a).getId() == id) {
+				modules.remove(a);
 			}
 		}
 	}
@@ -80,17 +77,13 @@ public class Student {
 	
 	public void addCourse(Course course) {
 		courses.add(course);
-		course.addStudent(this, true);
-	}
-	
-	public void addCourse(Course course, boolean x) {
-		courses.add(course);
+		
 	}
 	
 	public void removeCourse(String id) {
-		for(int i = 0; i < courses.size(); i++) {
-			if(courses.get(i).getName() == id) {
-				courses.remove(i);
+		for(int a = 0; a < courses.size(); a++) {
+			if(courses.get(a).getName() == id) {
+				courses.remove(a);
 			}
 		}
 	}
