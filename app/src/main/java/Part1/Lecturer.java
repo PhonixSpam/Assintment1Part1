@@ -1,5 +1,8 @@
 package Assignment1;
 
+
+
+
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
@@ -9,7 +12,7 @@ public class Lecturer {
 	private int age;
 	private DateTime dob;
 	private String id;
-	private String usrname;
+	private String user;
 	
 	private ArrayList<Module> modules = new ArrayList<Module>();
 	
@@ -17,7 +20,7 @@ public class Lecturer {
 		this.name = name;
 		this.id = id;
 		this.dob = DateTime.parse(dob);
-		this.age = (int) ((DateTime.now().getMillis() - this.dob.getMillis()) / Long.parseLong("31556952000"));
+		this.age = (int) ((DateTime.now().getMillis() - this.dob.getMillis()) / Long.parseLong("31556952000"));//gets the number of mill a seconds in a year to calculate age
 	}
 	
 	public String getName() {
@@ -45,31 +48,25 @@ public class Lecturer {
 	}
 	
 	public String getUsername() {
-		usrname = name.concat(String.valueOf(age));
-		return usrname;
+	 user = name.concat(String.valueOf(age));
+		return user;
 	}
 	
 	public String getId(){
-//		String temp = String.valueOf(10000 + idadd).substring(1, 4);
-//		id = temp.concat(String.valueOf(DateTime.now().getYear()).substring(1, 3));
-//		idadd++;
+
 		return id;
 	}
 	
 	public void addModule(Module module) {
 		modules.add(module);
-		module.setLecturer(this, true);
-	}
 	
-	public void addModule(Module module, boolean x) {
-		modules.add(module);
 	}
 	
 	
 	public void removeModule(String id) {
-		for(int i = 0; i < modules.size(); i++) {
-			if(modules.get(i).getId() == id) {
-				modules.remove(i);
+		for(int a = 0; a < modules.size(); a++) {
+			if(modules.get(a).getId() == id) {
+				modules.remove(a);
 			}
 		}
 	}
